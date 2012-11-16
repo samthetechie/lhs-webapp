@@ -15,23 +15,26 @@
     document.addEventListener('DOMContentLoaded',function(){getTickerRSS();});
   </script>
 
-  <title>Sukey.io: Home</title>
+  <title>lhs-webapp: Home</title>
 </head>
 <body>
 <div id="container">
 
 	<header>
 		<div id="ticker" class="pad5">Loading...</div>
-		<nav id="sukey" class="click"><img src="images/logo1.png" alt="home"></nav>
+		<nav id="lhs" class="click"><img src="images/logo.png" alt="home"></nav>
 	</header>
 
 	<nav id="main">
 	<ul>
 <!-- 	Will be using jquery data on li click to navigate -->
 		<li data-target="intro-view" class="click">Get Started</li>
-		<li data-target="send-view" class="click">Send us Info</li>
-		<li data-target="map-view" class="click">LIVE! Map</li>
+		<li data-target="send-view" class="click">Report a Papercut</li>
+		<a href="https://docs.google.com/spreadsheet/gform?key=0AtPlyIZQV2PIdFpvZlVvQkIzeElkV3pDRUZCRENIa3c&hl=en_GB#chart"><li>View Crowdsourced Papercuts</li></a>
+		<a href="https://wiki.london.hackspace.org.uk/view/Project:100_Paper_Cuts"><li>View Wiki Papercuts</li></a>
+		<a href="http://blog.london.hackspace.org.uk/submit"><li>Photo Blogging: I made a thing!</li></a>
 		<li data-target="feedback-view" class="click">Feedback</li>
+		<li data-target="share-view" class="click">Share</li>
 		<li data-target="about-view" class="click">About</li>
 	</ul>
 	</nav>
@@ -39,25 +42,59 @@
 
 
 <section id="intro-view" class="view">
-	<div class="copy">
-  <!-- !!! --><div class="alert">I think some of the wording here needs changing. [pbz1912]</div>
-  <p>Please note down this unique 5 digit id:</p>
-  <div class="well">
-    <!--#include virtual="activate/id.cgi"-->
-  </div>
-  <p>Then enter it here in the "123 Go To" tab:</p>
-  <div>
-  <a href="#report" class="btn" onclick="show('#report');">Send us Info</a>
-  </div>
-  <p>A list of ways to send us info should then appear in the "New" tab.</p>
-  <div>
-  <a href="#feedback" class="btn" onclick="show('#feedback');">Not Working? Feedback.</a>
-  </div>
-	</div>
+<p>By using this webapp you are helping to 'tend the London Hackspace garden'. Thank you for helping us help you help us all. :)
+This app was inspired by: https://wiki.london.hackspace.org.uk/view/Project:100_Paper_Cuts</p>
 </section>
 
 <section id="send-view" class="view">
-  <iframe src="http://api.human.io/client.html?phonegap=0&developer_id=YrpztFF5TLOAe4icukn8pQ" width="100%" height="400px"></iframe>
+<form action="https://docs.google.com/spreadsheet/formResponse?formkey=dFpvZlVvQkIzeElkV3pDRUZCRENIa3c6MQ&amp;embedded=true&amp;ifq" method="POST" id="ss-form">
+
+
+<br>
+<div>
+<div>
+<div>
+<h2>What is a papercut?</h2>
+<div>
+<p>If you add a papercut it must meet these critera:</p>
+<br>
+<p>-Easily identifiable job that takes no more than 5-30 minutes by atleast one person (more the merrier).</p>
+<p>-The task should be obvious to achieve, or have clear instructions provided in a separate wiki page.</p>
+<p>-Will not negatively affect anything else.</p>
+<br>
+<p>Feel free to add suggested solutions, but please add a date to any suggestions so we don&#39;t get knee-jerk fixes (putting four tildes, ~~~~, at the end of the point will sign and date it). If suggested solutions are complex, please create a wiki page under your username and link it. If you&#39;ve already fixed something, put it in &lt;s&gt;strikethrough&lt;/s&gt; </p></div>
+</div></div></div>
+<br> <div class="errorbox-good">
+<div><div class="ss-form-entry"><h2 class="ss-section-title"> What will doing a Papercut achieve?</h2>
+<div><p>These are the sort of papercuts we&#39;re after:</p>
+<br>
+<p>-Improves the general usability of the space</p>
+<p>-Asked repeatedly by newcomers</p>
+<p>-Makes it a nicer place</p>
+</div>
+</div></div></div>
+<br> <div>
+<div ><div class="ss-form-entry"><label class="ss-q-title" for="entry_5">Please describe your papercut idea!
+<span class="ss-required-asterisk">*</span></label>
+<label class="ss-q-help" for="entry_5">e.g. Sign in the library explaining how it works, especially what to do if someone wants to take a book home. Montyphy 28 August 2011 (UTC) </label>
+<textarea name="entry.5.single" rows="8" cols="75" class="ss-q-long" id="entry_5"></textarea></div></div></div>
+<br> <div class="errorbox-good">
+<div class="ss-item  ss-text"><div class="ss-form-entry"><label class="ss-q-title" for="entry_6">Your Email
+</label>
+<label class="ss-q-help" for="entry_6"></label>
+<input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6"></div></div></div>
+<br> <div class="errorbox-good">
+<div class="ss-item  ss-text"><div class="ss-form-entry"><label class="ss-q-title" for="entry_7">Your Name
+</label>
+<label class="ss-q-help" for="entry_7"></label>
+<input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7"></div></div></div>
+<br>
+<input type="hidden" name="pageNumber" value="0">
+<input type="hidden" name="backupCache" value="">
+
+
+<div class="ss-item ss-navigate"><div class="ss-form-entry">
+<input type="submit" name="submit" value="Submit"></div></div></form>
 </section>
 
 <section id="map-view" class="view">
@@ -67,14 +104,11 @@
 <section id="about-view" class="view">
 	<div class="copy">
 
-  <p>Sukey.io was brought to you by:</p>
+  <p>100 Paper Cuts Webapp:</p>
   <ul>
     <li>Samuel Carlisle <a href="https://twitter.com/samthetechie" target="_blank">(samthetechie)</a></li>
-    <li>Crypt</li>
-    <li>Alan Ross</li>
-    <li>Lilybet</li>
   </ul>
-  <p>We had fun making it so we hope you have fun using it.</p>
+  <p>I had fun making it so I hope you have fun using it.</p>
 
 	</div>
 </section>
@@ -82,18 +116,18 @@
 <section id="feedback-view" class="view">
 	<div class="copy">
   <p>If anything is not working (highly likely during BETA) then please describe the problem:</p>
-  	<form action="mailto:sukey.org+feedback@gmail.com" method="post" enctype="text/plain">
+  	<form action="mailto:samuelcarlisle+papercuts@gmail.com" method="post" enctype="text/plain">
 Feedback:<br>
 <textarea type="textarea" name="feeback" value="" cols=40 rows=4></textarea><br>
 <input id="useragent" type="text" name="browserversion" value="os/browser to be detected" disabled="disabled" size="50"><br>
 <input type="submit" id="submit" value="Send">
 	</form>
-	<p>Or you can email us: <a href="mailto:sukey.org+feedback@gmail.com">sukey.org+feedback@gmail.com</a></p>
+	<p>Or you can email me: <a href="mailto:samuelcarlisle@gmail.com">samuelcarlisle@gmail.com</a></p>
   	</div>
 </section>
 
 <footer>
-  <p><a href="https://twitter.com/sukeyio" target="_blank">@sukeyio</a> | <a href="webapp" target="_blank">Sukey.io</a> | <a href="http://sukey.org/" target="_blank">Sukey</a> &#169; 2012</p>
+  <p><a href="https://twitter.com/londonhackspace" target="_blank">@londonhackspace</a> | <a href="http://london.hackspace.org.uk" target="_blank">london.hackspace.org.uk</a></p>
 </footer>
 
 
